@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<CustomerOrdersViewModel>
+
+<div class="text-center">
+    <h1 class="display-4">Orders</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Notes</th>
+                <th>Quantity</th>
+                <th>Size</th>
+                <th>IsOrderValid</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr class="@(item.ValidationStatus.IsValid ? "table-success" : "")">
+                    <td class="@(item.ValidationStatus.Errors.Any(c=>c.Key == "email") ? "table-danger" : "")">@item.CustomerEmail</td>
+                    <td class="@(item.ValidationStatus.Errors.Any(c=>c.Key == "name") ? "table-danger" : "")">@item.CustomerName</td>
+                    <td class="@(item.ValidationStatus.Errors.Any(c=>c.Key == "date") ? "table-danger" : "")">@item.DateRequired.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Notes</td>
+                    <td class="@(item.ValidationStatus.Errors.Any(c=>c.Key == "quantity") ? "table-danger" : "")">@item.Quantity</td>
+                    <td class="@(item.ValidationStatus.Errors.Any(c=>c.Key == "size") ? "table-danger" : "")">@item.Size</td>
+                    <td class="@(!item.ValidationStatus.IsValid ? "table-danger" : "")">@item.ValidationStatus.IsValid</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="line-btn">
+        <button type="button" onclick="PrintOrders()" class="btn btn-primary">Print Orders</button>
+    </div>
+</div>
+
+<script>
+    function PrintOrders() {
+        var HTML = $("html");
+        var cln = document.documentElement.innerHTML;
+        HTML.html($("table"));
+        window.print();
+        document.documentElement.innerHTML = cln;
+        return false;
+    }
+</script>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "s1N7EmIGf4lKefRPvFqairgmRmQJfuhU0LaXczCrAjZ064LZZye/y3cMmWhXjFF+orR6v4MVQHnKaxYK+E7aqw==",
+  "success": true,
+  "projectFilePath": "C:\\CustomerOrdersCPS\\CustomerOrders\\CustomerOrders.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\win10\\.nuget\\packages\\xobjectscore\\3.2.0\\xobjectscore.3.2.0.nupkg.sha512",
+    "C:\\Users\\win10\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+  ],
+  "logs": []
+}
